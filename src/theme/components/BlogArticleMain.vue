@@ -33,9 +33,7 @@
           </span>
         </div>
       </div>
-      <!-- <ul v-if="article.commentsContent">
-        <li v-for="comment in article.commentsContent">{{comment.user.login}} - {{comment.body}}</li>
-      </ul> -->
+      <article-comment></article-comment>
     </article>
   </main>
 </template>
@@ -47,6 +45,7 @@ import marked from 'marked'
 import { mapGetters, mapActions } from 'vuex'
 
 import LoadingHint from './LoadingHint.vue'
+import ArticleComment from './ArticleComment.vue'
 
 export default {
   data () {
@@ -61,7 +60,8 @@ export default {
     ])
   },
   components: {
-    LoadingHint
+    LoadingHint,
+    ArticleComment
   },
   filters: {
     dateformatter: s => s.slice(0, 10)

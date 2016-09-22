@@ -10,7 +10,8 @@ const state = {
   articles: [],
   labels: [],
   isLoading: false,
-  article: {}
+  article: {},
+  comments: []
 }
 
 export default new Vuex.Store({

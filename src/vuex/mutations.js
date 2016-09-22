@@ -13,7 +13,7 @@ const mutations = {
   	state.article = article
   },
   UPDATE_COMMENTS_CONTENT (state, {commentsContent}) {
-  	state.article.commentsContent = commentsContent;
+  	state.comments = commentsContent;
   }
 }
 
