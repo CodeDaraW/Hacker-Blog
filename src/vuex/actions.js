@@ -1,9 +1,10 @@
 import 'whatwg-fetch'
+import site from '../../hacker.config.js'
 
 const actions = {
   fetchArticles: ({ commit }) => {
     commit('LOADING_START')
-    fetch('https://api.github.com/repos/eyasliu/blog/issues')
+    fetch(`https://api.github.com/repos/${site.githubUsername}/${site.repoName}/issues`)
       .then((response) => {
           return response.json()
         }).then((articles) => {
@@ -16,7 +17,7 @@ const actions = {
   },
   fetchArticle: ({ commit }, number) => {
     commit('LOADING_START')
-    fetch(`https://api.github.com/repos/eyasliu/blog/issues/${number}`)
+    fetch(`https://api.github.com/repos/${site.githubUsername}/${site.repoName}/issues/${number}`)
       .then((response) => {
           return response.json()
         }).then((article) => {
@@ -29,11 +30,10 @@ const actions = {
   },
   fecthCommentsContent: ({ commit }, number) => {
     commit('LOADING_START')
-    fetch(`https://api.github.com/repos/eyasliu/blog/issues/${number}/comments`)
+    fetch(`https://api.github.com/repos/${site.githubUsername}/${site.repoName}/issues/${number}/comments`)
       .then((response) => {
           return response.json()
         }).then((commentsContent) => {
-          // console.log(commentsContent)
           commit('UPDATE_COMMENTS_CONTENT', { commentsContent })
           commit('LOADING_FINISHED')
         }).catch(function(ex) {

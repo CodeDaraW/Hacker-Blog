@@ -219,7 +219,7 @@ article
           content ","
           padding-right 5px
 
-  pre
+  /*pre
     background-color #272822
     padding 20px
     border-radius 10px
@@ -237,7 +237,7 @@ article
     margin-right 2px
     color #c7254e
     background-color #F3F2ED
-    border-radius 5px
+    border-radius 5px*/
 
   p
     margin 2rem 0

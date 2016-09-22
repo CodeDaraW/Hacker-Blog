@@ -223,23 +223,23 @@ article
           padding-right 5px
 
   pre
-    background-color #272822
-    padding 20px
-    border-radius 10px
+    /*background-color #272822*/
+    /*padding 20px*/
+    /*border-radius 10px*/
 
     code
-      background-color #272822
-      color white
+      /*background-color #272822*/
+      /*color white*/
 
 
 
-  code
+  /*code
     padding 2px 4px
     margin-left 2px
     margin-right 2px
     color #c7254e
     background-color #F3F2ED
-    border-radius 5px
+    border-radius 5px*/
 
   p
     margin 2rem 0

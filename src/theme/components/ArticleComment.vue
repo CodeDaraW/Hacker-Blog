@@ -3,7 +3,7 @@
     <header>
   		<h3 class="title">{{comments.length}} 条评论</h3>
   	</header>
-    <ul class="comments-list">
+    <ul v-if="comments.length !== 0" class="comments-list">
       <li v-for="comment in comments">
       	<div class="avatar">
       		<img :src="comment.user.avatar_url">
@@ -19,10 +19,20 @@
       	</div>
       </li>
   	</ul>
+    <div class="join-discuss">
+      <p>发表评论将跳转到GitHub Issue页面</p>
+      <a :href="article.html_url" target="_blank">发表评论</button>
+    </div>
   </div>
 </template>
 <script>
 import marked from 'marked'
+
+marked.setOptions({
+  highlight: function (code) {
+    return require('highlight.js').highlightAuto(code).value;
+  }
+});
 
 import { mapGetters } from 'vuex'
 
@@ -32,15 +42,16 @@ export default {
   },
   computed: {
     ...mapGetters({
-      comments: 'getComments'
+      comments: 'getComments',
+      article: 'getArticle'
     })
   },
   filters: {
-    dateformatter: s => s.toString().slice(0, 10)
+    dateformatter: s => s.slice(0, 10)
   }
 }
 </script>
-<style lang="stylus">
+<style lang="stylus" scoped>
 .comments-area
   header
     position relative
@@ -90,7 +101,6 @@ export default {
     .avatar
       width 48px
       height 48px
-      /*flex-shrink 0*/
       background-color #e0e0e0
       border-radius 24px
       margin-right 10px
@@ -116,17 +126,6 @@ export default {
         height 48px
         margin-bottom 0.5rem
 
-        /*&:before
-        &:after
-          content " "
-          display table
-
-        &:after
-          clear both*/
-
-        /*.meta
-          float left*/
-
       .username
         font-size 1.8rem
         color #424242
@@ -136,15 +135,39 @@ export default {
         color #9e9e9e
 
       .comment-content
-        /*width 100%*/
+        overflow-x auto
 
         pre
-          max-width 90%
-/*
-.comment__actions
-  float right
+          overflow-x visible
+          white-space pre-wrap
 
-.comment + .comment-respond
-  margin-left 58px*/
+          code
+            color black
+            background-color transparent
+            border-radius 3px
+            padding 5px
+
+.join-discuss
+  margin 1rem 0
+
+  p
+    color #9e9e9e
+    font-size 1.4rem
+    display inline-block
+    vertical-align center
+  a
+    margin-top 10px
+    float right
+    display inline-block
+    color #fff
+    background-color #F03838
+    padding 0 20px
+    min-width 52px
+    border 0
+    height 32px
+    font-size 16px
+    line-height 32px
+    text-align center
+    cursor pointer
 
 </style>

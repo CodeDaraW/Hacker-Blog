@@ -18,7 +18,7 @@ import BlogFooter from './components/BlogFooter.vue'
 export default {
   data () {
     return {
-      
+
     }
   },
   // methods: mapActions([
@@ -35,17 +35,31 @@ export default {
 </script>
 
 <style lang="stylus">
+@import './lib/default.css'
+
+pre
+  overflow-x auto
+  background-color #eee
+  border-radius 3px
+  padding 5px
+
+code
+  padding 2px 4px
+  margin 0 2px
+  color black
+  border-radius 0
+
 html
   font-size 10px
   -webkit-text-size-adjust 100%
-  
+
 p
 h1
 h2
 h3
 h4
 h5
-h6 
+h6
   margin 0
 
 a
@@ -97,6 +111,6 @@ body
     height 16px
     background url(./images/icon-heart.svg) center center no-repeat
     icon-heart 19px 16px
-  
+
 
 </style>

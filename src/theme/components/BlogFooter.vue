@@ -1,19 +1,21 @@
 <template>
   <footer class="site-footer">
     <p class="site-info">
-      Proudly powered by <a href="https://hexo.io/" target="_blank">Hacker-Blog</a> and
+      Proudly powered by <a href="https://github.com/CodeDaraW/Hacker-Blog" target="_blank">Hacker-Blog</a> and
       Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
       <br>
-      &copy; 2016 DaraW
+      &copy; 2016 {{site.author}}
     </p>
   </footer>
 </template>
 
 <script>
+import site from '../../../hacker.config.js'
 
 export default {
   data () {
     return {
+      site: site
     }
   }
 }

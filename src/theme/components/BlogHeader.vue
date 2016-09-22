@@ -2,25 +2,27 @@
   <header>
     <div class="site-branding">
       <h1 class="site-title">
-        <router-link to="/">DaraW</router-link>
+        <router-link to="/">{{site.title}}</router-link>
       </h1>
-      <p class="site-description">前端只是一个title</p>
+      <p class="site-description">{{site.subTitle}}</p>
     </div>
     <nav class="site-navigation">
       <ul>
           <li><router-link to="/">主页</router-link></li>
-          <li><router-link to="/archives">归档</router-link></li>
-          <li><router-link to="/about">关于</router-link></li>
+          <!-- <li><router-link to="/archives">归档</router-link></li>
+          <li><router-link to="/about">关于</router-link></li> -->
       </ul>
     </nav>
   </header>
 </template>
 
 <script>
+import site from '../../../hacker.config.js'
 
 export default {
   data () {
     return {
+      site: site
     }
   }
 }
