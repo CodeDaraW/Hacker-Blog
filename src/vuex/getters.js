@@ -1,5 +1,7 @@
 const getters = {
-  evenOrOdd: state => state.count % 2 === 0 ? 'even' : 'odd'
+  getAllArticles: state => state.articles,
+  isLoading: state => state.isLoading,
+  getArticle: state => state.article
 }
 
 export default getters

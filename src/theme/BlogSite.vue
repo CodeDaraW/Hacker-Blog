@@ -2,7 +2,7 @@
   <div class="blog">
     <div class="content">
     <blog-header></blog-header>
-    <blog-index-main></blog-index-main>
+    <router-view></router-view>
     <blog-footer></blog-footer>
     </div>
   </div>
@@ -12,24 +12,24 @@
 import { mapGetters, mapActions } from 'vuex'
 import BlogHeader from './components/BlogHeader.vue'
 import BlogIndexMain from './components/BlogIndexMain.vue'
+import BlogArticleMain from './components/BlogArticleMain.vue'
 import BlogFooter from './components/BlogFooter.vue'
 
 export default {
   data () {
     return {
-      articles: this.$store.state.articles
+      
     }
   },
-  methods: mapActions([
-    'updateArticles',
-    'updateCommentsContent'
-  ]),
+  // methods: mapActions([
+  //   'updateArticles',
+  //   'updateCommentsContent'
+  // ]),
+  // created () {
+  // },
   components: {
     BlogHeader,
-    BlogIndexMain,
     BlogFooter
-  },
-  created () {
   }
 }
 </script>
@@ -98,4 +98,5 @@ body
     background url(./images/icon-heart.svg) center center no-repeat
     icon-heart 19px 16px
   
+
 </style>

@@ -2,16 +2,15 @@
   <header>
     <div class="site-branding">
       <h1 class="site-title">
-        <a href="/">DaraW</a>
+        <router-link to="/">DaraW</router-link>
       </h1>
       <p class="site-description">前端只是一个title</p>
     </div>
     <nav class="site-navigation">
       <ul>
-          <li><a href="/">主页</a></li>
-          <li><a href="/archives">归档</a></li>
-          <li><a href="/about">关于</a></li>
-          <li><a href="/links">链接</a></li>
+          <li><router-link to="/">主页</router-link></li>
+          <li><router-link to="/archives">归档</router-link></li>
+          <li><router-link to="/about">关于</router-link></li>
       </ul>
     </nav>
   </header>
@@ -39,13 +38,13 @@ header {
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-  
+
 
 .site-branding .site-title {
   margin: 0;
   font-size: 1.4rem;
 }
-    
+
 
 .site-branding .site-title a {
   display: inline-block;
@@ -58,7 +57,7 @@ header {
   -webkit-transition: padding 0.3s ease-out;
   transition: padding 0.3s ease-out;
 }
-      
+
 
 .site-branding .site-title a:hover {
   padding: 0 1.5rem;
@@ -69,7 +68,7 @@ header {
   font-size: 1.3rem;
   margin: 1rem 0 0;
 }
-    
+
 
 .site-navigation {
   text-align: center;
@@ -82,13 +81,13 @@ header {
   margin: 0;
   font-size: 1.6em;
 }
-    
+
 
 .site-navigation ul li {
   display: inline-block;
   margin: 0 0.5rem;
 }
-      
+
 .site-navigation ul li a {
   display: block;
   color: #F03838;
@@ -96,5 +95,5 @@ header {
   line-height: 2rem;
   padding: 0 1rem;
 }
-         
+
 </style>

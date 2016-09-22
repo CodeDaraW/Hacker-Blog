@@ -1,7 +1,7 @@
 <template>
-  <main>
+  <main class="site-main posts-loop">
     <loading-hint></loading-hint>
-    <article v-for="article in articles">
+    <article v-if="!isLoading">
       <h3 class="article-title">
         <router-link :to="{ name: 'article', params: { number: article.number }}" exact>
           <span>{{article.title}}</span>
@@ -15,7 +15,7 @@
         </span>
       </div>
       <div class="article-content">
-        <div class="entry" v-html="marked(article.body.slice(0, 200) + '...')"></div>
+        <div class="entry" v-html="marked(article.body)"></div>
       </div>
       <div class="article-footer">
         <div class="article-meta pull-left">
@@ -33,6 +33,9 @@
           </span>
         </div>
       </div>
+      <!-- <ul v-if="article.commentsContent">
+        <li v-for="comment in article.commentsContent">{{comment.user.login}} - {{comment.body}}</li>
+      </ul> -->
     </article>
   </main>
 </template>
@@ -50,31 +53,31 @@ export default {
     return {
     }
   },
-  computed: {
-    ...mapGetters({
-      articles: 'getAllArticles'
-    })
-  },
-  components: {
-    LoadingHint
-  },
   methods: {
     marked,
     ...mapActions([
-      'fetchArticles'
+      'fetchArticle',
+      'fecthCommentsContent'
     ])
+  },
+  components: {
+    LoadingHint
   },
   filters: {
     dateformatter: s => s.slice(0, 10)
   },
   created () {
-    if (this.articles.length === 0) {
-      this.fetchArticles()
-    }
+    this.fetchArticle(this.$route.params.number)
+    this.fecthCommentsContent(this.$route.params.number)
+  },
+  computed: {
+    ...mapGetters({
+      article: 'getArticle',
+      isLoading: 'isLoading'
+    })
   }
 }
 </script>
-
 <style lang="stylus">
 $hackerRed = #f03838
 $hackerGray = #9e9e9e
@@ -223,7 +226,6 @@ article
     background-color #272822
     padding 20px
     border-radius 10px
-    overflow-x auto
 
     code
       background-color #272822

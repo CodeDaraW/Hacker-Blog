@@ -16,10 +16,9 @@ export default {
   // computed: mapGetters([
   //   'evenOrOdd'
   // ]),
-  methods: mapActions([
-    'updateArticles',
-    'updateCommentsContent'
-  ]),
+  // methods: mapActions([
+  //   'getArticles'
+  // ]),
   components: {
     BlogSite
   },

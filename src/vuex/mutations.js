@@ -1,11 +1,19 @@
 const mutations = {
-  UPDATE_ARTICLES (state, {articles}) {
-  	articles.forEach ((article) => {
-  		state.articles.push(article)
-  	})
+  LOADING_START (state) {
+  	state.isLoading = true
   },
-  UPDATE_COMMENTS_CONTENT (state, {article, commentsContent}) {
-  	article.commentsContent = commentsContent;
+  LOADING_FINISHED (state) {
+  	state.isLoading = false
+  },
+
+  UPDATE_ARTICLES (state, {articles}) {
+  	state.articles = articles
+  },
+  UPDATE_ARTICLE (state, {article}) {
+  	state.article = article
+  },
+  UPDATE_COMMENTS_CONTENT (state, {commentsContent}) {
+  	state.article.commentsContent = commentsContent;
   }
 }
 

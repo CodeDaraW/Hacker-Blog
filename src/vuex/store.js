@@ -7,8 +7,10 @@ import mutations from './mutations'
 Vue.use(Vuex)
 
 const state = {
-  // articles: JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
-  articles: []
+  articles: [],
+  labels: [],
+  isLoading: false,
+  article: {}
 }
 
 export default new Vuex.Store({
