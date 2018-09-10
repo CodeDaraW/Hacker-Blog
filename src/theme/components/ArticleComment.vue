@@ -21,7 +21,7 @@
   	</ul>
     <div class="join-discuss">
       <p>发表评论将跳转到GitHub Issue页面</p>
-      <a :href="article.html_url" target="_blank">发表评论</button>
+      <a :href="article.html_url" target="_blank">发表评论</a>
     </div>
   </div>
 </template>
